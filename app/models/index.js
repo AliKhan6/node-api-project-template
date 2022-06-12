@@ -9,7 +9,11 @@ const sequelize = new Sequelize(
     host: config.db.DB_HOST,
     dialect: config.db.dialect,
     operatorsAliases: false,
+  
 
+
+
+    
     poll: {
       max: config.db.pool.max,
       min: config.db.pool.min,

@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize, DataTypes) => {
   const User = sequelize.define(
-    "user", // Model name
+    "users", // Model name
     {
       // Attributes
       id: {

@@ -1,33 +1,28 @@
-require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 
+// Load environment variables from env.json
+const envFilePath = path.join(__dirname, '../../config.json');
+const rawEnvData = fs.readFileSync(envFilePath);
+const envData = JSON.parse(rawEnvData);
+
+// Determine the environment based on NODE_ENV (default to 'development')
+const currentEnv = process.env.NODE_ENV || 'local';
+// Get the configuration for the current environment
+const currentEnvConfig = envData[currentEnv];
+
+// Set environment variables globally
+process.env = { ...process.env, ...currentEnvConfig };
+console.log("Current Environment: ", currentEnv);
 
 module.exports = {
-  NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
-
-  /** DATABASE */
   db: {
-    DB_HOST: process.env.DB_HOST,
-    DB_USER: process.env.DB_USER,
-    DB_PASS: process.env.DB_PASS,
-    DB_NAME: process.env.DB_NAME,
-    dialect: "mysql",
-
-    // pool is optional, it will be used for Sequelize connection pool configuration
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
-  },
-
-
-
-
-
-  /** AUTH KEY */
-  auth: {
-    secret: "our-secret-key"
+    username: process.env.username,
+    password: process.env.password,
+    database: process.env.database,
+    host: process.env.host,
+    dialect: process.env.dialect,
+    port: process.env.port
   }
 };

@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "username": "root",
+    "password": "",
+    "database": "examapledb",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": "3306",
+    "PORT": "8080",
+    "JWT_SECRET":"**jwtsecret**"
+  },
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "examapledb",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": "3306",
+    "PORT": "8080",
+    "JWT_SECRET":"**jwtsecret**"
+  },
+  "prod": {
+    "username": "root",
+    "password": "",
+    "database": "examapledb",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "port": "3306",
+    "PORT": "8080",
+    "JWT_SECRET":"**jwtsecret**"
+  }
+}
